@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aditi Shinde — Data Analytics & Project Management</title>
+<meta name="description" content="Aditi Shinde — MS in Project Management (Analytics), Professional Scrum Master. Python, SQL, R, Tableau, Power BI." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a12;
+    --bg-soft: #12121f;
+    --card: #16162a;
+    --text: #e8e8f0;
+    --muted: #9a9ab0;
+    --accent: #7c5cff;
+    --accent-2: #00d4ff;
+    --accent-3: #ff5c9d;
+    --border: rgba(255,255,255,0.08);
+    --shadow: 0 20px 60px -20px rgba(124,92,255,0.35);
+  }
+  [data-theme="light"] {
+    --bg: #f6f6fb;
+    --bg-soft: #ffffff;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --muted: #5a5a72;
+    --border: rgba(0,0,0,0.08);
+    --shadow: 0 20px 60px -25px rgba(124,92,255,0.3);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+  h1, h2, h3, .logo { font-family: 'Space Grotesk', sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* animated background blobs */
+  .bg-fx { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.5; animation: float 18s ease-in-out infinite; }
+  .blob.b1 { width: 480px; height: 480px; background: var(--accent); top: -120px; left: -100px; }
+  .blob.b2 { width: 420px; height: 420px; background: var(--accent-2); bottom: -120px; right: -80px; animation-delay: -6s; }
+  .blob.b3 { width: 360px; height: 360px; background: var(--accent-3); top: 40%; left: 55%; animation-delay: -12s; opacity: 0.3; }
+  @keyframes float {
+    0%,100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(40px,-30px) scale(1.1); }
+    66% { transform: translate(-30px,40px) scale(0.95); }
+  }
+
+  /* nav */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px);
+    background: color-mix(in srgb, var(--bg) 70%, transparent);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em; }
+  .logo span { background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { color: var(--muted); font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .theme-btn { background: none; border: 1px solid var(--border); color: var(--text); width: 38px; height: 38px; border-radius: 10px; cursor: pointer; font-size: 1.05rem; display: grid; place-items: center; transition: transform 0.2s, border-color 0.2s; }
+  .theme-btn:hover { transform: rotate(20deg); border-color: var(--accent); }
+  @media (max-width: 640px) { .nav-links a:not(.theme-wrap) { display: none; } }
+
+  /* hero */
+  header { padding: 110px 0 80px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--accent-2); border: 1px solid var(--border); padding: 6px 14px; border-radius: 999px; margin-bottom: 24px; background: var(--bg-soft); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; box-shadow: 0 0 0 0 rgba(46,204,113,0.6); animation: pulse 2s infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(46,204,113,0.6);} 70% { box-shadow: 0 0 0 10px rgba(46,204,113,0);} 100%{ box-shadow: 0 0 0 0 rgba(46,204,113,0);} }
+  header h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 700; margin-bottom: 20px; }
+  header h1 .grad { background: linear-gradient(120deg, var(--accent), var(--accent-3), var(--accent-2)); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 6s linear infinite; }
+  @keyframes shine { to { background-position: 200% center; } }
+  .lead { font-size: clamp(1.05rem, 2.5vw, 1.3rem); color: var(--muted); max-width: 640px; margin-bottom: 32px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn { display: inline-flex; align-items: center; gap: 9px; padding: 13px 24px; border-radius: 12px; font-weight: 600; font-size: 0.95rem; transition: transform 0.2s, box-shadow 0.2s; border: 1px solid var(--border); }
+  .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; border: none; box-shadow: var(--shadow); }
+  .btn.primary:hover { transform: translateY(-3px); box-shadow: 0 28px 70px -20px rgba(124,92,255,0.55); }
+  .btn.ghost { background: var(--bg-soft); }
+  .btn.ghost:hover { transform: translateY(-3px); border-color: var(--accent); }
+
+  /* stats */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px; text-align: center; }
+  .stat .num { font-family: 'Space Grotesk'; font-size: 1.9rem; font-weight: 700; background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat .lbl { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
+  @media (max-width: 640px){ .stats { grid-template-columns: repeat(2,1fr);} }
+
+  /* sections */
+  section { padding: 80px 0; }
+  .sec-head { margin-bottom: 44px; }
+  .sec-head .tag { color: var(--accent-2); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; }
+  .sec-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.02em; margin-top: 8px; }
+
+  /* about */
+  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; align-items: center; }
+  .avatar-wrap { position: relative; }
+  .avatar { width: 100%; max-width: 280px; border-radius: 24px; border: 1px solid var(--border); display: block; }
+  .avatar-wrap::before { content: ''; position: absolute; inset: -2px; border-radius: 26px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); z-index: -1; opacity: 0.6; filter: blur(14px); }
+  .about-text p { color: var(--muted); margin-bottom: 16px; }
+  .about-text strong { color: var(--text); }
+  @media (max-width: 760px){ .about-grid { grid-template-columns: 1fr; gap: 28px; } .avatar { margin: 0 auto; } }
+
+  /* skills */
+  .skills { display: flex; flex-wrap: wrap; gap: 12px; }
+  .chip { background: var(--card); border: 1px solid var(--border); padding: 10px 18px; border-radius: 12px; font-weight: 500; font-size: 0.92rem; transition: transform 0.2s, border-color 0.2s, color 0.2s; }
+  .chip:hover { transform: translateY(-3px); border-color: var(--accent); color: var(--accent-2); }
+
+  /* projects */
+  .proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 24px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 28px; position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; display: flex; flex-direction: column; }
+  .card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+  .card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: transparent; }
+  .card:hover::after { transform: scaleX(1); }
+  .card .lang { display: inline-flex; align-items: center; gap: 7px; font-size: 0.8rem; color: var(--muted); margin-bottom: 14px; }
+  .lang .swatch { width: 10px; height: 10px; border-radius: 50%; }
+  .card h3 { font-size: 1.25rem; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .card p { color: var(--muted); font-size: 0.93rem; margin-bottom: 18px; flex: 1; }
+  .tech { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .tech span { font-size: 0.75rem; background: var(--bg-soft); border: 1px solid var(--border); padding: 4px 10px; border-radius: 8px; color: var(--muted); }
+  .card-links { display: flex; gap: 16px; font-size: 0.88rem; font-weight: 600; }
+  .card-links a { color: var(--accent-2); display: inline-flex; align-items: center; gap: 6px; }
+  .card-links a:hover { text-decoration: underline; }
+
+  /* contact */
+  .contact { text-align: center; }
+  .contact h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 16px; letter-spacing: -0.02em; }
+  .contact p { color: var(--muted); max-width: 520px; margin: 0 auto 32px; }
+  .socials { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .social { width: 50px; height: 50px; border-radius: 14px; background: var(--card); border: 1px solid var(--border); display: grid; place-items: center; transition: transform 0.2s, border-color 0.2s; }
+  .social:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .social svg { width: 22px; height: 22px; fill: var(--text); }
+
+  footer { text-align: center; padding: 40px 0; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+<div class="bg-fx"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+
+<nav>
+  <div class="container">
+    <div class="logo">Aditi<span>.</span>Shinde</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="container">
+    <div class="eyebrow reveal"><span class="dot"></span> Open to data & project roles · Boston, USA</div>
+    <h1 class="reveal">Turning data into<br><span class="grad">decisions that matter.</span></h1>
+    <p class="lead reveal">I'm <strong>Aditi Shinde</strong> — an analytics-driven project manager who blends statistical rigor with stakeholder strategy. MS in Project Management (Analytics) &amp; Professional Scrum Master™.</p>
+    <div class="cta-row reveal">
+      <a class="btn primary" href="#projects">View my work →</a>
+      <a class="btn ghost" href="https://github.com/aditishinde2906" target="_blank" rel="noopener">GitHub Profile</a>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><div class="num">3+</div><div class="lbl">Analytics Projects</div></div>
+      <div class="stat"><div class="num">450K+</div><div class="lbl">Records Analyzed</div></div>
+      <div class="stat"><div class="num">6+</div><div class="lbl">Tools Mastered</div></div>
+      <div class="stat"><div class="num">PSM™</div><div class="lbl">Scrum Certified</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <div class="sec-head reveal"><div class="tag">Who I am</div><h2>About me</h2></div>
+    <div class="about-grid">
+      <div class="avatar-wrap reveal">
+        <img class="avatar" src="profile.jpg" alt="Aditi Shinde" />
+      </div>
+      <div class="about-text reveal">
+        <p>I bridge the gap between <strong>raw data and real-world impact</strong>. With a Master's in Project Management focused on Analytics and a Professional Scrum Master™ certification, I lead projects that are both data-informed and delivery-focused.</p>
+        <p>My work spans <strong>public-sector equity analysis, customer segmentation, and end-to-end data pipelines</strong> — always with an eye toward the decision the data should drive. I'm fluent in Python, SQL, and R, and bring insights to life through Tableau and Power BI dashboards.</p>
+        <p>Based in <strong>Boston, USA</strong> and open to opportunities in data analytics and project management.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="sec-head reveal"><div class="tag">My toolkit</div><h2>Skills &amp; tools</h2></div>
+    <div class="skills reveal">
+      <span class="chip">Python</span>
+      <span class="chip">SQL</span>
+      <span class="chip">R</span>
+      <span class="chip">R Shiny</span>
+      <span class="chip">Tableau</span>
+      <span class="chip">Power BI</span>
+      <span class="chip">MS Project</span>
+      <span class="chip">Data Visualization</span>
+      <span class="chip">Statistical Analysis</span>
+      <span class="chip">ETL Pipelines</span>
+      <span class="chip">Agile / Scrum</span>
+      <span class="chip">Stakeholder Management</span>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="sec-head reveal"><div class="tag">Selected work</div><h2>Featured projects</h2></div>
+    <div class="proj-grid">
+
+      <article class="card reveal">
+        <span class="lang"><span class="swatch" style="background:#198ce5"></span> R · R Shiny</span>
+        <h3>Boston 311 Service Equity Analysis</h3>
+        <p>Analyzed 450,000+ city service requests in SQL and R to uncover response-time disparities across Boston neighborhoods, and built an interactive R Shiny dashboard helping officials visualize underserved areas and drive more equitable resource policy.</p>
+        <div class="tech"><span>R</span><span>SQL</span><span>R Shiny</span><span>Data Equity</span></div>
+        <div class="card-links">
+          <a href="https://github.com/aditishinde2906/Boston-311-Service-Equity-Analysis" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <span class="lang"><span class="swatch" style="background:#e34c26"></span> HTML · Python</span>
+        <h3>IMDB Data Analytics Pipeline</h3>
+        <p>An end-to-end analytics pipeline over IMDB movie data — extracting, cleaning, and transforming raw datasets into interactive visualizations of ratings, genres, and box-office trends to surface what drives a film's success.</p>
+        <div class="tech"><span>Python</span><span>ETL</span><span>Data Viz</span><span>HTML</span></div>
+        <div class="card-links">
+          <a href="https://github.com/aditishinde2906/IMDB---Data-Analytics-Pipeline" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <span class="lang"><span class="swatch" style="background:#3572A5"></span> Python</span>
+        <h3>E-commerce Customer Segmentation</h3>
+        <p>Segmented an e-commerce customer base using RFM analysis and clustering to identify high-value cohorts, informing targeted marketing strategy and retention campaigns built around real purchasing behavior.</p>
+        <div class="tech"><span>Python</span><span>Clustering</span><span>RFM</span><span>Analytics</span></div>
+        <div class="card-links">
+          <a href="https://github.com/aditishinde2906/E-commerce-Customer-Segmentation" target="_blank" rel="noopener">View on GitHub ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="reveal">
+      <h2>Let's build something with data.</h2>
+      <p>I'm open to roles in data analytics and project management. Whether you have a question or just want to connect — my inbox is always open.</p>
+      <div class="socials">
+        <a class="social" href="https://github.com/aditishinde2906" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        </a>
+        <a class="social" href="mailto:shinde.adit@northeastern.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24"><path d="M2 4h20c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H2c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm10 7L2.4 6.2C2.2 6.3 2 6.6 2 7v.2l10 5 10-5V7c0-.4-.2-.7-.4-.8L12 11z"/></svg>
+        </a>
+        <a class="social" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© <span id="year"></span> Aditi Shinde · Built with curiosity &amp; caffeine.</div>
+</footer>
+
+<script>
+  // theme toggle
+  const root = document.documentElement;
+  const tbtn = document.getElementById('themeBtn');
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') { root.setAttribute('data-theme','light'); tbtn.textContent='☀️'; }
+  tbtn.addEventListener('click', () => {
+    const light = root.getAttribute('data-theme') === 'light';
+    if (light) { root.removeAttribute('data-theme'); tbtn.textContent='🌙'; localStorage.setItem('theme','dark'); }
+    else { root.setAttribute('data-theme','light'); tbtn.textContent='☀️'; localStorage.setItem('theme','light'); }
+  });
+
+  // year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el,i) => { el.style.transitionDelay = (i % 4 * 0.06) + 's'; io.observe(el); });
+</script>
+</body>
+</html>
