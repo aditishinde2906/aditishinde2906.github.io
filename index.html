@@ -177,8 +177,11 @@
     .cert-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
     .cert {
       display: flex; gap: 16px; align-items: center; background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 22px 26px; box-shadow: var(--shadow);
+      border-radius: var(--radius); padding: 22px 26px; box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s, border-color .2s;
     }
+    a.cert:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: var(--border-bright); }
+    a.cert:hover .name { color: var(--accent); }
+    .cert .verify { color: var(--accent); font-weight: 600; }
     .cert .ico { font-size: 1.6rem; }
     .cert .name { font-weight: 600; font-size: 1rem; color: var(--ink); }
     .cert .org { color: var(--ink-faint); font-size: .86rem; }
@@ -420,10 +423,10 @@
             <span class="ico">🎯</span>
             <div><div class="name">Six Sigma Yellow Belt</div><div class="org">6sigmastudy · May 2026</div></div>
           </div>
-          <div class="cert">
+          <a class="cert" href="https://www.scrum.org/user/1453399" target="_blank" rel="noopener">
             <span class="ico">🏅</span>
-            <div><div class="name">Professional Scrum Master I (PSM®)</div><div class="org">Scrum.org · Aug 2024</div></div>
-          </div>
+            <div><div class="name">Professional Scrum Master I (PSM®)</div><div class="org">Scrum.org · Aug 2024 · <span class="verify">Verify ↗</span></div></div>
+          </a>
           <div class="cert">
             <span class="ico">📘</span>
             <div><div class="name">Project Management — Harvard ManageMentor</div><div class="org">Harvard Business Publishing · Oct 2023</div></div>
